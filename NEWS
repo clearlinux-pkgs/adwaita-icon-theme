@@ -1,3 +1,46 @@
+3.22.0
+  - simplified input-table-symbolic
+  - opacity fixes for networking-vpn-acquring
+  - invisible go-down-symbolic
+  
+3.21.91
+  - user-available-symbolic transparency fix
+  - calculator app icon update
+  - fixed cursors
+  - folder-download-symbolic style fixes
+  - vertical visual centering for go-up, go-down-symbolic icons
+
+3.21.2
+  - network-wireless-connected improvements
+  - document-edit, text-editor, modem-symbolic shape improvement
+  - baseline-align folders
+  - reshape folders
+  - add a context-menu cursor
+  - improve grab and dnd-no-drop cursors
+
+3.20
+  - win32 build fixes
+
+3.19.91
+  - application-x-addon-symbolic
+  - win32 build fixes
+  - win32 grey shadows fixed (bug #763034)
+
+3.19.90
+  - lighter fullcolor folders
+  - thicker stroke for non-starred-symbolic
+  - emblem-new metaphor sync
+  - call-start call-stop symbolic shape improvements
+  - mark-location-symbolic improved shape
+  - edit-cut shape improvement
+  - simplify hdd symbolic shapes
+  - document-edit-symblic
+  - visual separation between list and grid view and hamburger menu 
+    (symbolic)
+  - symbolic wifi-acquiring bugfix
+  - specfic icon grid for gnome-shell
+  - windows build system scripts
+
 3.18.0
   - improved view-list-symbolic
   - cursors working on KDE
