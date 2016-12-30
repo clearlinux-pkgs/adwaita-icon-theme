@@ -1,2 +1,7 @@
 # This file contains additional build requirements that did not get
 # picked up automatically. One name per line, no whitespace.
+gtk3-bin
+gdk-pixbuf
+librsvg
+librsvg-dev
+librsvg-dev32
