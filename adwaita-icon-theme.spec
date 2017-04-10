@@ -4,12 +4,12 @@
 #
 Name     : adwaita-icon-theme
 Version  : 3.24.0
-Release  : 8
+Release  : 9
 URL      : https://download.gnome.org/sources/adwaita-icon-theme/3.24/adwaita-icon-theme-3.24.0.tar.xz
 Source0  : https://download.gnome.org/sources/adwaita-icon-theme/3.24/adwaita-icon-theme-3.24.0.tar.xz
 Summary  : A collection of icons used as the basis for GNOME themes
 Group    : Development/Tools
-License  : CC-BY-SA-3.0 GPL-3.0 LGPL-3.0
+License  : CC-BY-SA-3.0 LGPL-3.0
 Requires: adwaita-icon-theme-data
 BuildRequires : gcc-dev32
 BuildRequires : gcc-libgcc32
@@ -70,7 +70,7 @@ popd
 
 %build
 export LANG=C
-export SOURCE_DATE_EPOCH=1490629990
+export SOURCE_DATE_EPOCH=1491837908
 %configure --disable-static
 make V=1  %{?_smp_mflags}
 
@@ -90,7 +90,7 @@ export no_proxy=localhost
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1490629990
+export SOURCE_DATE_EPOCH=1491837908
 rm -rf %{buildroot}
 pushd ../build32/
 %make_install32
@@ -102,6 +102,9 @@ popd
 fi
 popd
 %make_install
+## make_install_append content
+gtk-update-icon-cache %{buildroot}%{_datadir}/icons/Adwaita
+## make_install_append end
 
 %files
 %defattr(-,root,root,-)
@@ -5074,6 +5077,7 @@ popd
 /usr/share/icons/Adwaita/cursors/xterm
 /usr/share/icons/Adwaita/cursors/zoom-in
 /usr/share/icons/Adwaita/cursors/zoom-out
+/usr/share/icons/Adwaita/icon-theme.cache
 /usr/share/icons/Adwaita/index.theme
 /usr/share/icons/Adwaita/scalable-up-to-32/status/process-working-symbolic.svg
 /usr/share/icons/Adwaita/scalable/actions/action-unavailable-symbolic.svg
