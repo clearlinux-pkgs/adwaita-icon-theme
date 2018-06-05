@@ -4,7 +4,7 @@
 #
 Name     : adwaita-icon-theme
 Version  : 3.28.0
-Release  : 17
+Release  : 18
 URL      : https://download.gnome.org/sources/adwaita-icon-theme/3.28/adwaita-icon-theme-3.28.0.tar.xz
 Source0  : https://download.gnome.org/sources/adwaita-icon-theme/3.28/adwaita-icon-theme-3.28.0.tar.xz
 Summary  : A collection of icons used as the basis for GNOME themes
@@ -73,7 +73,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1522117090
+export SOURCE_DATE_EPOCH=1528216534
 %configure --disable-static
 make  %{?_smp_mflags}
 
@@ -93,7 +93,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1522117090
+export SOURCE_DATE_EPOCH=1528216534
 rm -rf %{buildroot}
 pushd ../build32/
 %make_install32
@@ -114,6 +114,7 @@ gtk-update-icon-cache %{buildroot}%{_datadir}/icons/Adwaita
 
 %files data
 %defattr(-,root,root,-)
+%exclude /usr/share/icons/Adwaita/icon-theme.cache
 /usr/share/icons/Adwaita/16x16/actions/action-unavailable-symbolic.symbolic.png
 /usr/share/icons/Adwaita/16x16/actions/address-book-new-symbolic.symbolic.png
 /usr/share/icons/Adwaita/16x16/actions/address-book-new.png
@@ -5194,7 +5195,6 @@ gtk-update-icon-cache %{buildroot}%{_datadir}/icons/Adwaita
 /usr/share/icons/Adwaita/cursors/xterm
 /usr/share/icons/Adwaita/cursors/zoom-in
 /usr/share/icons/Adwaita/cursors/zoom-out
-/usr/share/icons/Adwaita/icon-theme.cache
 /usr/share/icons/Adwaita/index.theme
 /usr/share/icons/Adwaita/scalable-up-to-32/status/process-working-symbolic.svg
 /usr/share/icons/Adwaita/scalable/actions/action-unavailable-symbolic.svg
