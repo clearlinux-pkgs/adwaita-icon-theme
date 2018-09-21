@@ -4,7 +4,7 @@
 #
 Name     : adwaita-icon-theme
 Version  : 3.30.0
-Release  : 19
+Release  : 20
 URL      : https://download.gnome.org/sources/adwaita-icon-theme/3.30/adwaita-icon-theme-3.30.0.tar.xz
 Source0  : https://download.gnome.org/sources/adwaita-icon-theme/3.30/adwaita-icon-theme-3.30.0.tar.xz
 Summary  : A collection of icons used as the basis for GNOME themes
