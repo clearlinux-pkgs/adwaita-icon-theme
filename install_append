@@ -1,1 +1,0 @@
-gtk-update-icon-cache %{buildroot}%{_datadir}/icons/Adwaita
