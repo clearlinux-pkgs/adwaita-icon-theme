@@ -4,7 +4,7 @@
 #
 Name     : adwaita-icon-theme
 Version  : 3.38.0
-Release  : 30
+Release  : 31
 URL      : https://download.gnome.org/sources/adwaita-icon-theme/3.38/adwaita-icon-theme-3.38.0.tar.xz
 Source0  : https://download.gnome.org/sources/adwaita-icon-theme/3.38/adwaita-icon-theme-3.38.0.tar.xz
 Summary  : A collection of icons used as the basis for GNOME themes
@@ -13,19 +13,13 @@ License  : CC-BY-SA-3.0 LGPL-3.0
 Requires: adwaita-icon-theme-data = %{version}-%{release}
 Requires: adwaita-icon-theme-license = %{version}-%{release}
 BuildRequires : buildreq-gnome
-BuildRequires : gcc-dev32
-BuildRequires : gcc-libgcc32
-BuildRequires : gcc-libstdc++32
 BuildRequires : gdk-pixbuf
 BuildRequires : gettext
-BuildRequires : glibc-dev32
-BuildRequires : glibc-libc32
 BuildRequires : gtk3-bin
 BuildRequires : librsvg
 BuildRequires : librsvg-dev
 BuildRequires : perl(XML::Parser)
 BuildRequires : pkg-config
-BuildRequires : pkgconfig(32gtk+-2.0)
 BuildRequires : pkgconfig(gtk+-2.0)
 # Suppress generation of debuginfo
 %global debug_package %{nil}
@@ -58,16 +52,6 @@ Requires: adwaita-icon-theme = %{version}-%{release}
 dev components for the adwaita-icon-theme package.
 
 
-%package dev32
-Summary: dev32 components for the adwaita-icon-theme package.
-Group: Default
-Requires: adwaita-icon-theme-data = %{version}-%{release}
-Requires: adwaita-icon-theme-dev = %{version}-%{release}
-
-%description dev32
-dev32 components for the adwaita-icon-theme package.
-
-
 %package license
 Summary: license components for the adwaita-icon-theme package.
 Group: Default
@@ -79,16 +63,13 @@ license components for the adwaita-icon-theme package.
 %prep
 %setup -q -n adwaita-icon-theme-3.38.0
 cd %{_builddir}/adwaita-icon-theme-3.38.0
-pushd ..
-cp -a adwaita-icon-theme-3.38.0 build32
-popd
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1600281610
+export SOURCE_DATE_EPOCH=1600316065
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -100,40 +81,20 @@ export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %configure --disable-static
 make  %{?_smp_mflags}
 
-pushd ../build32/
-export PKG_CONFIG_PATH="/usr/lib32/pkgconfig"
-export ASFLAGS="${ASFLAGS}${ASFLAGS:+ }--32"
-export CFLAGS="${CFLAGS}${CFLAGS:+ }-m32 -mstackrealign"
-export CXXFLAGS="${CXXFLAGS}${CXXFLAGS:+ }-m32 -mstackrealign"
-export LDFLAGS="${LDFLAGS}${LDFLAGS:+ }-m32 -mstackrealign"
-%configure --disable-static    --libdir=/usr/lib32 --build=i686-generic-linux-gnu --host=i686-generic-linux-gnu --target=i686-clr-linux-gnu
-make  %{?_smp_mflags}
-popd
 %check
 export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 make %{?_smp_mflags} check
-cd ../build32;
-make %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1600281610
+export SOURCE_DATE_EPOCH=1600316065
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/adwaita-icon-theme
 cp %{_builddir}/adwaita-icon-theme-3.38.0/COPYING %{buildroot}/usr/share/package-licenses/adwaita-icon-theme/e1c70e3dfd920291d376c2c29d5f357c3976d813
 cp %{_builddir}/adwaita-icon-theme-3.38.0/COPYING_CCBYSA3 %{buildroot}/usr/share/package-licenses/adwaita-icon-theme/900806db6414f1bb309ab7438c0a5bac52eb3c2b
 cp %{_builddir}/adwaita-icon-theme-3.38.0/COPYING_LGPL %{buildroot}/usr/share/package-licenses/adwaita-icon-theme/f45ee1c765646813b442ca58de72e20a64a7ddba
-pushd ../build32/
-%make_install32
-if [ -d  %{buildroot}/usr/lib32/pkgconfig ]
-then
-pushd %{buildroot}/usr/lib32/pkgconfig
-for i in *.pc ; do ln -s $i 32$i ; done
-popd
-fi
-popd
 %make_install
 ## Remove excluded files
 rm -f %{buildroot}/usr/share/icons/Adwaita/icon-theme.cache
@@ -6143,11 +6104,6 @@ rm -f %{buildroot}/usr/share/icons/Adwaita/icon-theme.cache
 %files dev
 %defattr(-,root,root,-)
 /usr/lib64/pkgconfig/adwaita-icon-theme.pc
-
-%files dev32
-%defattr(-,root,root,-)
-/usr/lib32/pkgconfig/32adwaita-icon-theme.pc
-/usr/lib32/pkgconfig/adwaita-icon-theme.pc
 
 %files license
 %defattr(0644,root,root,0755)
