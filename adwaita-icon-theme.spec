@@ -4,7 +4,7 @@
 #
 Name     : adwaita-icon-theme
 Version  : 40.1.1
-Release  : 34
+Release  : 35
 URL      : https://download.gnome.org/sources/adwaita-icon-theme/40/adwaita-icon-theme-40.1.1.tar.xz
 Source0  : https://download.gnome.org/sources/adwaita-icon-theme/40/adwaita-icon-theme-40.1.1.tar.xz
 Summary  : A collection of icons used as the basis for GNOME themes
@@ -66,15 +66,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1622762712
+export SOURCE_DATE_EPOCH=1629074021
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
-export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
+export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=auto "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
+export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=auto "
 %configure --disable-static
 make  %{?_smp_mflags}
 
@@ -86,7 +86,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1622762712
+export SOURCE_DATE_EPOCH=1629074021
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/adwaita-icon-theme
 cp %{_builddir}/adwaita-icon-theme-40.1.1/COPYING %{buildroot}/usr/share/package-licenses/adwaita-icon-theme/e1c70e3dfd920291d376c2c29d5f357c3976d813
