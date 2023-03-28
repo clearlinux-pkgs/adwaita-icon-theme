@@ -5,7 +5,7 @@
 #
 Name     : adwaita-icon-theme
 Version  : 44.0
-Release  : 43
+Release  : 44
 URL      : https://download.gnome.org/sources/adwaita-icon-theme/44/adwaita-icon-theme-44.0.tar.xz
 Source0  : https://download.gnome.org/sources/adwaita-icon-theme/44/adwaita-icon-theme-44.0.tar.xz
 Summary  : A collection of icons used as the basis for GNOME themes
@@ -69,7 +69,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1679683520
+export SOURCE_DATE_EPOCH=1680017155
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -89,7 +89,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1679683520
+export SOURCE_DATE_EPOCH=1680017155
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/adwaita-icon-theme
 cp %{_builddir}/adwaita-icon-theme-%{version}/COPYING %{buildroot}/usr/share/package-licenses/adwaita-icon-theme/e1c70e3dfd920291d376c2c29d5f357c3976d813 || :
