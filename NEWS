@@ -1,3 +1,16 @@
+48.0
+- symbolic: pan-* old design was in place for -rtl
+- cursors: added dnd-ask on gtk request
+
+48.beta
+- drop spinner (process-working). libadwaita provides one
+
+48.alpha
+- cursors: adjust asset sizing to feel more linear (issue #294, #295)
+- build cleanup
+- symbolic: power profile metaphors (issue #284)
+- symbolic: pan icons (Sam)
+- symbolic: remove emblems (issue #287)
 47.0
 47.beta
 - cursors: updated spinners to match libadwaita
